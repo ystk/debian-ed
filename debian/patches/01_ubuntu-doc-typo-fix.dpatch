@@ -1,0 +1,43 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 01_ubuntu-doc-typo-fix.dpatch by  <bobbo@penguin-hardy>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: fix two typos on ed.1
+
+@DPATCH@
+diff -urNad ed-0.7~/doc/ed.1 ed-0.7/doc/ed.1
+--- ed-0.7~/doc/ed.1	2006-10-05 20:35:42.000000000 +0100
++++ ed-0.7/doc/ed.1	2008-02-28 18:15:37.000000000 +0000
+@@ -168,7 +168,7 @@
+ 
+ An address range is two addresses separated either by a comma or
+ semicolon. The value of the first address in a range cannot exceed the
+-value of the the second.  If only one address is given in a range, then
++value of the second.  If only one address is given in a range, then
+ the second address is set to the given address.  If an
+ .IR n- tuple
+ of addresses is given where
+diff -urNad ed-0.7~/doc/ed.info ed-0.7/doc/ed.info
+--- ed-0.7~/doc/ed.info	2007-07-18 16:06:12.000000000 +0100
++++ ed-0.7/doc/ed.info	2008-02-28 18:15:47.000000000 +0000
+@@ -380,7 +380,7 @@
+ 
+    An address range is two addresses separated either by a comma or
+ semicolon. The value of the first address in a range cannot exceed the
+-value of the the second. If only one address is given in a range, then
++value of the second. If only one address is given in a range, then
+ the second address is set to the given address. If an N-tuple of
+ addresses is given where N > 2, then the corresponding range is
+ determined by the last two addresses in the N-tuple. If only one
+diff -urNad ed-0.7~/doc/ed.texinfo ed-0.7/doc/ed.texinfo
+--- ed-0.7~/doc/ed.texinfo	2007-07-18 16:05:25.000000000 +0100
++++ ed-0.7/doc/ed.texinfo	2008-02-28 18:15:51.000000000 +0000
+@@ -424,7 +424,7 @@
+ 
+ An address range is two addresses separated either by a comma or
+ semicolon. The value of the first address in a range cannot exceed the
+-value of the the second. If only one address is given in a range, then
++value of the second. If only one address is given in a range, then
+ the second address is set to the given address. If an @var{n}-tuple of
+ addresses is given where @var{n} > 2, then the corresponding range is
+ determined by the last two addresses in the @var{n}-tuple. If only one

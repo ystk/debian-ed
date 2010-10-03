@@ -1,0 +1,19 @@
+Source: ed
+Section: editors
+Priority: optional
+Maintainer: Martin Zobel-Helas <zobel@debian.org>
+Standards-Version: 3.8.1.0
+Build-Depends: dpatch, debhelper (>= 7.2.17)
+Homepage: http://www.gnu.org/software/ed/
+
+Package: ed
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Provides: editor
+Description: The classic UNIX line editor
+ ed is a line-oriented text editor.  It is used to
+ create, display, modify and otherwise manipulate text
+ files.
+ .
+ red is a restricted ed: it can only edit files in the
+ current directory and cannot execute shell commands.
