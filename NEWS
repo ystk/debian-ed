@@ -1,12 +1,20 @@
-Changes in version 1.4:
+Changes in version 1.6:
 
-The undo command has been fixed to restore the modified status of the
-buffer being edited.
+Displaying of null characters by the "l" command has been fixed.
 
-A race condition with user interrupt has been fixed in
-search_and_replace.
+The condition deciding when to show the message "Newline appended" has
+been corrected.
 
-The functions resize_line_buffer and resize_undo_buffer have been added
-to definitively fix the aliasing warnings.
+The "modified" flag is now set when reading a non-empty file into an
+empty buffer.
 
-Some minor corrections have been made to the manual.
+An error that prevented using NUL characters in regular expressions has
+been fixed.
+
+Ed now signals an error if it can't create a shell process when
+executing a shell command.
+
+Ed now flushes stdout/stderr before reading a new command.
+
+Man page is now generated with "help2man". All command-line options are
+now documented in the man page.

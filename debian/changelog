@@ -1,3 +1,44 @@
+ed (1.6-2) unstable; urgency=low
+
+  * Enable hardening build flags. 
+  * Bump Standards-Version, no changes needed.
+  * Add lintian overwrite for build-depends-on-obsolete-package.
+
+ -- Martin Zobel-Helas <zobel@debian.org>  Tue, 29 May 2012 15:32:44 +0200
+
+ed (1.6-1) unstable; urgency=low
+
+  * Imported Upstream version 1.6
+
+ -- Martin Zobel-Helas <zobel@debian.org>  Mon, 02 Jan 2012 16:56:21 +0100
+
+ed (1.5-3) unstable; urgency=low
+
+  * uuuups, that should not have gone to unstanle
+    removed ed Provides: editor
+
+ -- Martin Zobel-Helas <zobel@debian.org>  Sun, 04 Sep 2011 13:53:47 +0200
+
+ed (1.5-2) unstable; urgency=low
+
+  * ed Provides: editor
+  * fix lintian warning description-synopsis-starts-with-article
+  * bump Standards-Version, no changes needed.
+
+ -- Martin Zobel-Helas <zobel@debian.org>  Sun, 04 Sep 2011 13:01:49 +0200
+
+ed (1.5-1) experimental; urgency=low
+
+  * Imported Upstream version 1.5
+  * updated Makefile.in patch
+  * Bump Standards-Version, no changes needed.
+  * add debian/source/format
+  * add debian/watch
+  * update to newer debhelper (Closes: #577122)
+  * add README.source and fix patches/ to please lintian
+
+ -- Martin Zobel-Helas <zobel@debian.org>  Tue, 14 Sep 2010 23:49:59 +0200
+
 ed (1.4-3) unstable; urgency=low
 
   * debian/control: move Provides to the correct place.

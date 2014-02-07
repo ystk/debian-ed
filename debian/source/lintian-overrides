@@ -1,0 +1,2 @@
+# i will stick on dpatch as long as i can
+ed source: build-depends-on-obsolete-package build-depends: dpatch

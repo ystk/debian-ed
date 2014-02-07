@@ -12,6 +12,9 @@ include /usr/share/dpatch/dpatch.make
 override_dh_auto_build:
 	$(MAKE) $(CROSS)
 
+override_dh_auto_configure:
+	dh_auto_configure -- $(shell dpkg-buildflags --export=configure)
+
 %:
 	dh $@
 
@@ -20,6 +23,7 @@ build: patch-stamp
 
 clean: unpatch
 	dh clean
+	dh_clean Makefile config.status *.o ed red
 
 binary: binary-arch binary-indep
 binary-indep:

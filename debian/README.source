@@ -1,0 +1,4 @@
+See /usr/share/doc/dpatch/README.source.gz
+
+The upstream author handles install-info differently to Debian's policy,
+thus 02_fix-install-info.dpatch changes upstreams Makefile.in 

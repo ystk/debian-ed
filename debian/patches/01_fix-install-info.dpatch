@@ -1,0 +1,19 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 02_fix-install-info.patch.dpatch by  Martin Zobel-Helas <zobel@debian.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: We don't want to run install-info
+
+@DPATCH@
+diff -urNad '--exclude=CVS' '--exclude=.svn' '--exclude=.git' '--exclude=.arch' '--exclude=.hg' '--exclude=_darcs' '--exclude=.bzr' ed~/Makefile.in ed/Makefile.in
+--- ed~/Makefile.in	2010-09-06 20:47:18.000000000 +0200
++++ ed/Makefile.in	2010-09-06 21:12:03.000000000 +0200
+@@ -51,7 +51,7 @@
+ check : all
+ 	@$(VPATH)/testsuite/check.sh $(VPATH)/testsuite $(pkgversion)
+ 
+-install : all install-info install-man
++install : all install-man
+ 	if [ ! -d "$(DESTDIR)$(bindir)" ] ; then $(INSTALL_DIR) "$(DESTDIR)$(bindir)" ; fi
+ 	$(INSTALL_PROGRAM) ./$(progname) "$(DESTDIR)$(bindir)/$(program_prefix)$(progname)"
+ 	$(INSTALL_SCRIPT) ./r$(progname) "$(DESTDIR)$(bindir)/$(program_prefix)r$(progname)"
