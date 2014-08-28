@@ -1,6 +1,6 @@
 /*  GNU ed - The GNU line editor.
     Copyright (C) 1993, 1994 Andrew Moore, Talke Studio
-    Copyright (C) 2006, 2007, 2008, 2009, 2010, 2011, 2012
+    Copyright (C) 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014
     Free Software Foundation, Inc.
 
     This program is free software: you can redistribute it and/or modify
@@ -198,7 +198,7 @@ static int next_addr( const char ** const ibufpp, int * const addr_cnt )
   {
   const char * const s = *ibufpp = skip_blanks( *ibufpp );
   int addr = current_addr();
-  bool first = true;
+  bool first = true;			/* true == addr, false == offset */
 
   while( true )
     {
@@ -644,7 +644,7 @@ static bool exec_global( const char ** const ibufpp, const int gflags,
   if( !interactive )
     {
     if( traditional() && !strcmp( *ibufpp, "\n" ) )
-      cmd = "p\n";			/* null cmd_list == `p' */
+      cmd = "p\n";			/* null cmd_list == 'p' */
     else
       {
       if( !get_extended_line( ibufpp, 0, false ) ) return false;
