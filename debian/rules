@@ -7,6 +7,7 @@ else
 CROSS=
 endif
 
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 include /usr/share/dpatch/dpatch.make
 
 override_dh_auto_build:
@@ -34,8 +35,7 @@ binary-arch:
 	# Move it around:
 	mkdir -p debian/ed/bin
 	mv debian/ed/usr/bin/ed debian/ed/bin
-	# Trash it, will be symlinked:
-	rm debian/ed/usr/bin/red
+	mv debian/ed/usr/bin/red debian/ed/bin
 	dh --remaining $@
 
 .PHONY: build clean binary-arch binary-indep binary

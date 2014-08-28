@@ -1,3 +1,53 @@
+ed (1.10-2) unstable; urgency=medium
+
+  * enable DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+ -- Martin Zobel-Helas <zobel@debian.org>  Tue, 25 Feb 2014 21:58:25 +0100
+
+ed (1.10-1) unstable; urgency=medium
+
+  * New upstream version 1.10
+  * New Standards-Version 3.9.5 
+
+ -- Martin Zobel-Helas <zobel@debian.org>  Tue, 25 Feb 2014 10:46:53 +0100
+
+ed (1.9-2) unstable; urgency=low
+
+  * move ed and red back to /bin/ as FHS requires ed to exist in /bin
+    (Closes: #714494, #714536)
+
+ -- Martin Zobel-Helas <zobel@debian.org>  Tue, 16 Jul 2013 17:46:00 +0200
+
+ed (1.9-1) unstable; urgency=low
+
+  * New upstream version 1.9
+
+ -- Martin Zobel-Helas <zobel@debian.org>  Thu, 27 Jun 2013 20:37:40 +0200
+
+ed (1.9~rc1-2) unstable; urgency=low
+
+  * Since version 1.5 red is a 'ed --restricted' call, with a script for
+    red. And we should ship that one. Thanks to Antonio Diaz Diaz for
+    spotting this issue.
+
+ -- Martin Zobel-Helas <zobel@debian.org>  Mon, 03 Jun 2013 01:15:36 +0200
+
+ed (1.9~rc1-1) unstable; urgency=low
+
+  * New upstream version 1.9 RC1
+    This might fix our build failures, thus: (Closes: #640341, #680801)
+  * Bump Standards-Version, no changes needed.
+
+ -- Martin Zobel-Helas <zobel@debian.org>  Sat, 01 Jun 2013 11:57:05 +0200
+
+ed (1.8-1) unstable; urgency=low
+
+  * New upstream version 1.7 
+  * New upstream version 1.8 
+  * Add multiarch metadata (Closes: #693824, #683045)
+
+ -- Martin Zobel-Helas <zobel@debian.org>  Sun, 05 May 2013 12:44:15 +0200
+
 ed (1.6-2) unstable; urgency=low
 
   * Enable hardening build flags. 

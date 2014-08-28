@@ -1,5 +1,5 @@
 /*  Arg_parser - POSIX/GNU command line argument parser. (C version)
-    Copyright (C) 2006, 2007, 2008, 2009, 2010, 2011, 2012
+    Copyright (C) 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014
     Antonio Diaz Diaz.
 
     This library is free software: you can redistribute it and/or modify
@@ -26,13 +26,13 @@
     Public License.
 */
 
-/*  Arg_parser reads the arguments in `argv' and creates a number of
+/*  Arg_parser reads the arguments in 'argv' and creates a number of
     option codes, option arguments and non-option arguments.
 
-    In case of error, `ap_error' returns a non-null pointer to an error
+    In case of error, 'ap_error' returns a non-null pointer to an error
     message.
 
-    `options' is an array of `struct ap_Option' terminated by an element
+    'options' is an array of 'struct ap_Option' terminated by an element
     containing a code which is zero. A null name means a short-only
     option. A code value outside the unsigned char range means a
     long-only option.
@@ -41,13 +41,13 @@
     were specified before all the non-option arguments for the purposes
     of parsing, even if the user of your program intermixed option and
     non-option arguments. If you want the arguments in the exact order
-    the user typed them, call `ap_init' with `in_order' = true.
+    the user typed them, call 'ap_init' with 'in_order' = true.
 
-    The argument `--' terminates all options; any following arguments are
+    The argument '--' terminates all options; any following arguments are
     treated as non-option arguments, even if they begin with a hyphen.
 
-    The syntax for optional option arguments is `-<short_option><argument>'
-    (without whitespace), or `--<long_option>=<argument>'.
+    The syntax for optional option arguments is '-<short_option><argument>'
+    (without whitespace), or '--<long_option>=<argument>'.
 */
 
 #ifdef __cplusplus

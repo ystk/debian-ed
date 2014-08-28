@@ -2,13 +2,14 @@ Source: ed
 Section: editors
 Priority: optional
 Maintainer: Martin Zobel-Helas <zobel@debian.org>
-Standards-Version: 3.9.3
+Standards-Version: 3.9.5
 Build-Depends: dpatch, debhelper (>= 7.2.17)
 Homepage: http://www.gnu.org/software/ed/
 
 Package: ed
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Multi-arch: foreign
 Description: classic UNIX line editor
  ed is a line-oriented text editor.  It is used to
  create, display, modify and otherwise manipulate text

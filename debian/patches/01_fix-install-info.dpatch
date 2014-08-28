@@ -6,14 +6,14 @@
 
 @DPATCH@
 diff -urNad '--exclude=CVS' '--exclude=.svn' '--exclude=.git' '--exclude=.arch' '--exclude=.hg' '--exclude=_darcs' '--exclude=.bzr' ed~/Makefile.in ed/Makefile.in
---- ed~/Makefile.in	2010-09-06 20:47:18.000000000 +0200
-+++ ed/Makefile.in	2010-09-06 21:12:03.000000000 +0200
-@@ -51,7 +51,7 @@
+--- ed~/Makefile.in	2013-05-05 12:43:38.000000000 +0200
++++ ed/Makefile.in	2013-05-05 13:44:02.841303992 +0200
+@@ -57,7 +57,7 @@
  check : all
  	@$(VPATH)/testsuite/check.sh $(VPATH)/testsuite $(pkgversion)
  
--install : all install-info install-man
-+install : all install-man
+-install : install-bin install-info install-man
++install : install-bin install-man
+ 
+ install-bin : all
  	if [ ! -d "$(DESTDIR)$(bindir)" ] ; then $(INSTALL_DIR) "$(DESTDIR)$(bindir)" ; fi
- 	$(INSTALL_PROGRAM) ./$(progname) "$(DESTDIR)$(bindir)/$(program_prefix)$(progname)"
- 	$(INSTALL_SCRIPT) ./r$(progname) "$(DESTDIR)$(bindir)/$(program_prefix)r$(progname)"

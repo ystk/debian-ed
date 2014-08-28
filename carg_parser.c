@@ -1,5 +1,5 @@
 /*  Arg_parser - POSIX/GNU command line argument parser. (C version)
-    Copyright (C) 2006, 2007, 2008, 2009, 2010, 2011, 2012
+    Copyright (C) 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014
     Antonio Diaz Diaz.
 
     This library is free software: you can redistribute it and/or modify
@@ -32,7 +32,7 @@
 #include "carg_parser.h"
 
 
-/* assure at least a minimum size for buffer `buf' */
+/* assure at least a minimum size for buffer 'buf' */
 static void * ap_resize_buffer( void * buf, const int min_size )
   {
   if( buf ) buf = realloc( buf, min_size );
@@ -45,7 +45,7 @@ static char push_back_record( struct Arg_parser * const ap,
                               const int code, const char * const argument )
   {
   const int len = strlen( argument );
-  struct ap_Record *p;
+  struct ap_Record * p;
   void * tmp = ap_resize_buffer( ap->data,
                  ( ap->data_size + 1 ) * sizeof (struct ap_Record) );
   if( !tmp ) return 0;
@@ -88,16 +88,15 @@ static char parse_long_option( struct Arg_parser * const ap,
                                const struct ap_Option options[],
                                int * const argindp )
   {
-  unsigned int len;
-  int index = -1;
-  int i;
+  unsigned len;
+  int index = -1, i;
   char exact = 0, ambig = 0;
 
   for( len = 0; opt[len+2] && opt[len+2] != '='; ++len ) ;
 
   /* Test all long options for either exact match or abbreviated matches. */
   for( i = 0; options[i].code != 0; ++i )
-    if( options[i].name && !strncmp( options[i].name, &opt[2], len ) )
+    if( options[i].name && strncmp( options[i].name, &opt[2], len ) == 0 )
       {
       if( strlen( options[i].name ) == len )	/* Exact match found */
         { index = i; exact = 1; break; }
@@ -109,31 +108,31 @@ static char parse_long_option( struct Arg_parser * const ap,
 
   if( ambig && !exact )
     {
-    add_error( ap, "option `" ); add_error( ap, opt );
+    add_error( ap, "option '" ); add_error( ap, opt );
     add_error( ap, "' is ambiguous" );
     return 1;
     }
 
   if( index < 0 )		/* nothing found */
     {
-    add_error( ap, "unrecognized option `" ); add_error( ap, opt );
+    add_error( ap, "unrecognized option '" ); add_error( ap, opt );
     add_error( ap, "'" );
     return 1;
     }
 
   ++*argindp;
 
-  if( opt[len+2] )		/* `--<long_option>=<argument>' syntax */
+  if( opt[len+2] )		/* '--<long_option>=<argument>' syntax */
     {
     if( options[index].has_arg == ap_no )
       {
-      add_error( ap, "option `--" ); add_error( ap, options[index].name );
+      add_error( ap, "option '--" ); add_error( ap, options[index].name );
       add_error( ap, "' doesn't allow an argument" );
       return 1;
       }
     if( options[index].has_arg == ap_yes && !opt[len+3] )
       {
-      add_error( ap, "option `--" ); add_error( ap, options[index].name );
+      add_error( ap, "option '--" ); add_error( ap, options[index].name );
       add_error( ap, "' requires an argument" );
       return 1;
       }
@@ -144,7 +143,7 @@ static char parse_long_option( struct Arg_parser * const ap,
     {
     if( !arg || !arg[0] )
       {
-      add_error( ap, "option `--" ); add_error( ap, options[index].name );
+      add_error( ap, "option '--" ); add_error( ap, options[index].name );
       add_error( ap, "' requires an argument" );
       return 1;
       }
@@ -165,8 +164,7 @@ static char parse_short_option( struct Arg_parser * const ap,
 
   while( cind > 0 )
     {
-    int index = -1;
-    int i;
+    int index = -1, i;
     const unsigned char code = opt[cind];
     char code_str[2];
     code_str[0] = code; code_str[1] = 0;
@@ -224,12 +222,12 @@ char ap_init( struct Arg_parser * const ap,
   while( argind < argc )
     {
     const unsigned char ch1 = argv[argind][0];
-    const unsigned char ch2 = ( ch1 ? argv[argind][1] : 0 );
+    const unsigned char ch2 = ch1 ? argv[argind][1] : 0;
 
     if( ch1 == '-' && ch2 )		/* we found an option */
       {
       const char * const opt = argv[argind];
-      const char * const arg = (argind + 1 < argc) ? argv[argind+1] : 0;
+      const char * const arg = ( argind + 1 < argc ) ? argv[argind+1] : 0;
       if( ch2 == '-' )
         {
         if( !argv[argind][2] ) { ++argind; break; }	/* we found "--" */
